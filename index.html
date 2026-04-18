@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>בטיחות בקליק — הכנה למבחן בטיחות מה"ט</title>
+<meta name="description" content="מערכת הכנה למבחן בטיחות מה"ט — 338+ שאלות תרגול ב-16 נושאים, סימולציות מבחן, חומר לימודי ומעקב התקדמות. חינם לגמרי.">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;900&family=Frank+Ruhl+Libre:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}a{text-decoration:none;color:inherit}
+:root {
+  --primary: #f59e0b;
+  --primary-dark: #d97706;
+  --secondary: #1e3a8a;
+  --secondary-light: #2563eb;
+  --gradient: linear-gradient(135deg, #f59e0b, #ea580c);
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: rgba(0,0,0,0.08);
+}
+body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;display:flex;flex-direction:column;min-height:100vh;}
+.w{max-width:1100px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0;background:var(--secondary);box-shadow:0 2px 10px rgba(0,0,0,0.15);}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:60px}
+.nlogo{font-family:'Frank Ruhl Libre',serif;font-size:1.3rem;font-weight:900;color:#fff;display:flex;align-items:center;gap:8px;}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.8);font-size:.88rem;font-weight:500;padding:8px 14px;border-radius:8px;transition:all .2s}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.1)}
+.nav-cta{background:var(--gradient) !important;color:#fff !important;font-weight:700 !important;box-shadow:0 2px 8px rgba(245,158,11,0.3);padding:8px 18px !important;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(245,158,11,0.4) !important}
+
+/* HERO */
+.hero{padding:120px 0 40px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:-50%;left:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(245,158,11,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero-text{position:relative;z-index:1}
+.hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);color:var(--primary-dark);padding:7px 18px;border-radius:99px;font-size:.82rem;font-weight:600;margin-bottom:20px}
+.hero h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:900;line-height:1.15;margin-bottom:18px;color:var(--secondary)}
+.hero p{color:var(--text-muted);font-size:1.08rem;line-height:1.75;margin-bottom:32px;max-width:480px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.btn-primary{padding:14px 32px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif;transition:all .3s;border:none;color:#fff;background:var(--gradient);box-shadow:0 4px 15px rgba(245,158,11,0.25);display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(245,158,11,0.35)}
+.btn-secondary{padding:14px 28px;border-radius:12px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Heebo',sans-serif;transition:all .2s;border:2px solid var(--secondary);color:var(--secondary);background:transparent;display:inline-flex;align-items:center;gap:8px}
+.btn-secondary:hover{background:var(--secondary);color:#fff}
+.hstats{display:flex;gap:40px;flex-wrap:wrap}
+.hs{text-align:center}
+.hs .n{font-family:'Frank Ruhl Libre',serif;font-size:2.4rem;font-weight:900;color:var(--primary);line-height:1}
+.hs .l{font-size:.82rem;color:var(--text-muted);font-weight:500;margin-top:4px}
+
+/* HERO VISUAL */
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-card{background:var(--card-bg);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,0.08);width:100%;max-width:380px;transform:rotate(-2deg)}
+.hero-card-header{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.hero-card-header span{font-size:1.5rem}
+.hero-card-header h3{font-size:1rem;font-weight:700;color:var(--secondary)}
+.hero-card-q{font-size:.92rem;font-weight:600;line-height:1.6;margin-bottom:16px;color:var(--text)}
+.hero-card-opt{display:flex;flex-direction:column;gap:8px}
+.hero-card-opt div{padding:10px 14px;border-radius:10px;font-size:.85rem;border:1px solid var(--border);background:#f8fafc;color:var(--text-muted)}
+.hero-card-opt div.correct-demo{border-color:#10b981;background:#ecfdf5;color:#065f46;font-weight:600}
+.float-badge{position:absolute;background:var(--card-bg);border-radius:14px;padding:10px 16px;box-shadow:0 8px 30px rgba(0,0,0,0.1);font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:8px;border:1px solid var(--border)}
+.float-badge.top-left{top:-10px;right:-10px;color:#10b981}
+.float-badge.bottom-right{bottom:10px;left:-20px;color:var(--secondary)}
+
+/* SECTIONS */
+.sec{padding:40px 0}
+.sh{text-align:center;margin-bottom:48px}
+.sh h2{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:900;margin-bottom:10px;color:var(--secondary)}
+.sh p{color:var(--text-muted);font-size:1.02rem;max-width:550px;margin:0 auto;line-height:1.6}
+.sec-alt{background:#fff}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.feature-card{background:var(--card-bg);border:1px solid var(--border);border-radius:18px;padding:28px 24px;transition:all .3s;position:relative;overflow:hidden}
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,0.07);border-color:rgba(245,158,11,0.3)}
+.feature-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px}
+.feature-icon.orange{background:rgba(245,158,11,0.1)}
+.feature-icon.blue{background:rgba(30,58,138,0.08)}
+.feature-icon.green{background:rgba(16,185,129,0.08)}
+.feature-icon.purple{background:rgba(139,92,246,0.08)}
+.feature-card h3{font-size:1.1rem;font-weight:800;margin-bottom:8px;color:var(--text)}
+.feature-card p{font-size:.9rem;color:var(--text-muted);line-height:1.6}
+
+/* STEPS */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative}
+.steps-grid::before{content:'';position:absolute;top:45px;right:16%;left:16%;height:2px;background:linear-gradient(to left,var(--primary),var(--secondary));opacity:0.2;z-index:0}
+.step{text-align:center;position:relative;z-index:1}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--gradient);color:#fff;font-family:'Frank Ruhl Libre',serif;font-size:1.5rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 4px 15px rgba(245,158,11,0.25)}
+.step h3{font-size:1.05rem;font-weight:700;margin-bottom:6px;color:var(--text)}
+.step p{font-size:.88rem;color:var(--text-muted);line-height:1.5;max-width:250px;margin:0 auto}
+
+/* PDF LINKS */
+.pdf-list{display:flex;flex-direction:column;gap:12px;max-width:600px;margin:0 auto}
+.pdf-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:16px;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,0.03)}
+.pdf-card:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:0 8px 20px rgba(245,158,11,0.08)}
+.pdf-icon{width:44px;height:44px;border-radius:12px;background:rgba(30,58,138,0.06);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.pdf-card h4{font-size:.98rem;font-weight:700;color:var(--secondary);margin-bottom:2px}
+.pdf-card span{font-size:.82rem;color:var(--text-muted)}
+
+/* LOGIN */
+.login-sec{padding:80px 24px;display:flex;justify-content:center}
+.lcard{background:var(--card-bg);border:1px solid var(--border);border-radius:24px;padding:44px 36px;width:100%;max-width:440px;box-shadow:0 12px 40px rgba(0,0,0,0.06);text-align:center}
+.lcard-title{font-family:'Frank Ruhl Libre',serif;font-size:1.6rem;font-weight:900;color:var(--secondary);margin-bottom:8px}
+.lcard-sub{font-size:.92rem;color:var(--text-muted);margin-bottom:28px;line-height:1.5}
+.gbtn{width:100%;padding:14px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;font-size:.98rem;font-weight:600;color:#334155;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Heebo',sans-serif;transition:all .2s;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.gbtn:hover{background:#f8fafc;border-color:#94a3b8;box-shadow:0 4px 12px rgba(0,0,0,0.06)}
+.lcard-note{font-size:.78rem;color:var(--text-muted);margin-top:16px;line-height:1.4}
+
+/* DIVIDER */
+.auth-divider{display:flex;align-items:center;gap:14px;margin:22px 0}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:#e2e8f0}
+.auth-divider span{font-size:.82rem;color:var(--text-muted);font-weight:500;white-space:nowrap}
+
+/* EMAIL FORM */
+.auth-form{text-align:right}
+.auth-input{width:100%;padding:12px 16px;border:1px solid #e2e8f0;border-radius:10px;font-size:.95rem;font-family:'Heebo',sans-serif;color:var(--text);outline:none;transition:border-color .2s;box-sizing:border-box;margin-bottom:10px;direction:ltr;text-align:right}
+.auth-input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(245,158,11,0.1)}
+.auth-input::placeholder{color:#94a3b8;text-align:right}
+.auth-submit{width:100%;padding:14px;border:none;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif;background:var(--gradient);color:#fff;transition:all .2s;box-shadow:0 4px 15px rgba(245,158,11,0.25)}
+.auth-submit:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,158,11,0.35)}
+.auth-submit:disabled{opacity:.5;cursor:default;transform:none}
+.auth-toggle{font-size:.88rem;color:var(--secondary);cursor:pointer;font-weight:600;margin-top:14px;display:inline-block;border:none;background:none;font-family:'Heebo',sans-serif}
+.auth-toggle:hover{text-decoration:underline}
+.auth-error{background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;padding:10px 14px;border-radius:10px;font-size:.85rem;margin-bottom:12px;display:none;text-align:center;line-height:1.5}
+.auth-success{background:#ecfdf5;border:1px solid #6ee7b7;color:#065f46;padding:10px 14px;border-radius:10px;font-size:.85rem;margin-bottom:12px;display:none;text-align:center;line-height:1.5}
+
+/* PASSWORD STRENGTH */
+.pw-strength{margin-bottom:12px}
+.pw-bar-wrap{display:flex;gap:4px;margin-bottom:4px}
+.pw-bar{flex:1;height:5px;border-radius:99px;background:#e2e8f0;transition:background .3s}
+.pw-label{font-size:.78rem;font-weight:600;text-align:right}
+
+/* VERIFY BANNER */
+.verify-banner{background:#fffbeb;border:1px solid #fcd34d;color:#92400e;padding:14px 18px;border-radius:12px;font-size:.9rem;line-height:1.6;margin-bottom:14px;display:none;text-align:center}
+.verify-banner button{background:var(--primary);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif;font-size:.85rem;margin-top:8px}
+
+/* FOOTER */
+footer{background:var(--secondary);color:#fff;padding:40px 20px;text-align:center;margin-top:auto}
+footer .copy{font-size:.95rem;color:#cbd5e1;margin-bottom:14px}
+footer .f-links{display:flex;justify-content:center;gap:20px;font-size:.9rem}
+footer .f-links a{color:var(--primary);font-weight:600;transition:opacity .2s}
+footer .f-links a:hover{opacity:0.8}
+footer .f-sep{color:rgba(255,255,255,0.2)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero p{margin-left:auto;margin-right:auto}
+  .hero-btns{justify-content:center}
+  .hstats{justify-content:center}
+  .hero-visual{margin-top:20px}
+  .hero-card{transform:rotate(0)}
+  .float-badge{display:none}
+  .steps-grid{grid-template-columns:1fr;gap:24px}
+  .steps-grid::before{display:none}
+  .nav-links a:not(.nav-cta){display:none}
+  .features-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .features-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column;align-items:stretch}
+}
+
+/* COUNTDOWN */
+.countdown-wrap{text-align:center;padding:18px 20px;background:var(--secondary);border-radius:14px;box-shadow:0 6px 20px rgba(30,58,138,0.15);max-width:520px;margin:0 auto}
+.countdown-label{font-size:.85rem;font-weight:600;color:rgba(255,255,255,0.8);margin-bottom:10px}
+.countdown{display:flex;justify-content:center;align-items:center;gap:6px;direction:ltr}
+.cd-block{display:flex;flex-direction:column;align-items:center;min-width:50px}
+.cd-num{font-family:'Frank Ruhl Libre',serif;font-size:clamp(1.4rem,3.2vw,1.9rem);font-weight:900;color:#fff;line-height:1;background:rgba(255,255,255,0.08);border-radius:8px;padding:7px 10px;min-width:50px;text-align:center}
+.cd-txt{font-size:.68rem;color:rgba(255,255,255,0.6);margin-top:4px;font-weight:500}
+.cd-sep{font-size:1.3rem;font-weight:900;color:var(--primary);padding-bottom:14px}
+.countdown-date{font-size:.78rem;color:rgba(255,255,255,0.5);margin-top:8px}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;justify-content:center;align-items:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-overlay.active{display:flex}
+.modal-overlay .lcard{margin:0;animation:modalIn .3s ease;position:relative;max-height:90vh;overflow-y:auto}
+.modal-close{position:absolute;top:14px;left:14px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--text-muted);transition:.2s;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:8px}
+.modal-close:hover{background:#f1f5f9;color:var(--text)}
+@keyframes modalIn{from{opacity:0;transform:scale(0.95) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<nav><div class="w">
+  <div class="nlogo">🏗️ בטיחות בקליק</div>
+  <div class="nav-links">
+    <a href="#features">מה מקבלים</a>
+    <a href="#steps">איך זה עובד</a>
+    <a href="#" class="nav-cta" onclick="event.preventDefault();window.openLoginModal()">התחברות</a>
+  </div>
+</div></nav>
+
+<!-- ⏰ ספירה לאחור — בראש העמוד ממש כדי ליצור דחיפות מיידית -->
+<section class="sec sec-alt" id="countdown-section" style="padding-top:90px; padding-bottom:30px;"><div class="w">
+<div class="countdown-wrap">
+  <div class="countdown-label">המבחן הבא של מה"ט בעוד</div>
+  <div class="countdown" id="countdown">
+    <div class="cd-block"><span class="cd-num" id="cd-days">--</span><span class="cd-txt">ימים</span></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-block"><span class="cd-num" id="cd-hours">--</span><span class="cd-txt">שעות</span></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-block"><span class="cd-num" id="cd-mins">--</span><span class="cd-txt">דקות</span></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-block"><span class="cd-num" id="cd-secs">--</span><span class="cd-txt">שניות</span></div>
+  </div>
+  <div class="countdown-date">8 ביולי 2026</div>
+</div>
+</div></section>
+
+<section class="hero" style="padding-top:30px;"><div class="w">
+<div class="hero-grid">
+  <div class="hero-text">
+    <div class="hbadge">🛡️ המאגר הבלעדי של רון שרעבי</div>
+    <h1>הכנה מושלמת<br>למבחן בטיחות מה"ט</h1>
+    <p>338+ שאלות תרגול ב-16 נושאים, סימולציות מבחן מלאות, סיכומי חומר וחומר לימודי מקיף — הכל חינם, הכל במקום אחד.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="window.openLoginModal()">התחל ללמוד עכשיו ←</button>
+      <button class="btn-secondary" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">מה כלול?</button>
+    </div>
+    <div class="hstats">
+      <div class="hs"><div class="n">338+</div><div class="l">שאלות תרגול</div></div>
+      <div class="hs"><div class="n">5</div><div class="l">סימולציות</div></div>
+      <div class="hs"><div class="n">16</div><div class="l">נושאים</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-card-header"><span>🎯</span><h3>שאלה לדוגמה</h3></div>
+      <div class="hero-card-q">מהו הגובה המינימלי שממנו נדרשת הגנה מפני נפילה?</div>
+      <div class="hero-card-opt">
+        <div>א. 1 מטר</div>
+        <div class="correct-demo">ב. 2 מטרים ✓</div>
+        <div>ג. 3 מטרים</div>
+        <div>ד. 5 מטרים</div>
+      </div>
+    </div>
+    <div class="float-badge top-left">✓ תשובה נכונה!</div>
+    <div class="float-badge bottom-right">📊 מעקב התקדמות</div>
+  </div>
+</div>
+</div></section>
+
+<!-- 🪜 איך זה עובד — קודם מסבירים את התהליך -->
+<section class="sec" id="steps"><div class="w">
+<div class="sh">
+  <h2>איך זה עובד?</h2>
+  <p>שלושה צעדים פשוטים עד המבחן</p>
+</div>
+<div class="steps-grid">
+  <div class="step">
+    <div class="step-num">1</div>
+    <h3>נרשמים בקליק</h3>
+    <p>התחברות מהירה עם חשבון Google — בלי סיסמאות, בלי טפסים</p>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <h3>מתרגלים ולומדים</h3>
+    <p>תרגול שאלות לפי נושא, סימולציות מבחן וקריאת חומר לימודי</p>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <h3>עוברים את המבחן</h3>
+    <p>מגיעים מוכנים ובטוחים למבחן הבטיחות של מה"ט</p>
+  </div>
+</div>
+</div></section>
+
+<!-- ⭐ תכונות — אחרי שהבינו איך עובד, מציגים מה כלול -->
+<section class="sec sec-alt" id="features"><div class="w">
+<div class="sh">
+  <h2>מה מקבלים במערכת?</h2>
+  <p>כל מה שצריך כדי להגיע מוכנים למבחן הבטיחות של מה"ט</p>
+</div>
+<div class="features-grid">
+  <div class="feature-card">
+    <div class="feature-icon orange">🎯</div>
+    <h3>338+ שאלות תרגול</h3>
+    <p>שאלות רב-ברירה ונכון/לא נכון מחולקות לפי 16 נושאים, עם הסברים מפורטים לכל תשובה</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon blue">📝</div>
+    <h3>סימולציות מבחן</h3>
+    <p>מבחנים מלאים של 50 שאלות בפורמט זהה למבחן מה"ט האמיתי, עם ציון ומשוב מיידי</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon green">📚</div>
+    <h3>חומר לימודי מקיף</h3>
+    <p>סיכומים ממוקדים של כל הנושאים: עבודה בגובה, סולמות, עגורנים, גלישה, מלגזות ועוד</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon purple">📊</div>
+    <h3>מעקב התקדמות</h3>
+    <p>גרפים וסטטיסטיקות אישיות — תראו בדיוק איפה אתם חזקים ומה צריך לחזק</p>
+  </div>
+</div>
+</div></section>
+
+<div class="modal-overlay" id="login-modal" onclick="if(event.target===this)window.closeLoginModal()">
+<div class="lcard">
+  <button class="modal-close" onclick="window.closeLoginModal()">✕</button>
+  <div class="lcard-title">מוכנים להתחיל?</div>
+  <div class="lcard-sub">התחברו ותתחילו לתרגל תוך שניות — חינם לגמרי</div>
+
+  <button class="gbtn" id="btn-google" onclick="window.doGoogleLogin()">
+    <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.35-8.16 2.35-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+    התחבר עם Google
+  </button>
+
+  <div class="auth-divider"><span>או עם אימייל וסיסמה</span></div>
+
+  <div id="auth-error" class="auth-error"></div>
+  <div id="auth-success" class="auth-success"></div>
+  <div id="verify-banner" class="verify-banner">
+    שלחנו קוד אימות למייל שלך. בדוק את תיבת הדואר (כולל ספאם) ולחץ על הקישור לאימות.
+    <br><button onclick="window.resendVerification()">שלח שוב</button>
+  </div>
+
+  <form class="auth-form" id="auth-form" onsubmit="return false;">
+    <input class="auth-input" type="email" id="auth-email" placeholder="כתובת אימייל" autocomplete="email" required>
+    <input class="auth-input" type="password" id="auth-password" placeholder="סיסמה" autocomplete="current-password" required oninput="window.checkStrength()">
+    <div class="pw-strength" id="pw-strength" style="display:none;">
+      <div class="pw-bar-wrap"><div class="pw-bar" id="pw1"></div><div class="pw-bar" id="pw2"></div><div class="pw-bar" id="pw3"></div><div class="pw-bar" id="pw4"></div></div>
+      <div class="pw-label" id="pw-label"></div>
+    </div>
+    <input class="auth-input" type="text" id="auth-name" placeholder="שם מלא (להרשמה בלבד)" style="display:none;" autocomplete="name">
+    <button class="auth-submit" type="submit" id="auth-submit" onclick="window.doEmailAuth()">התחבר</button>
+    <button class="auth-toggle" type="button" id="auth-toggle" onclick="window.toggleAuthMode()">אין לך חשבון? הירשם כאן</button>
+    <br>
+    <button class="auth-toggle" type="button" id="forgot-link" onclick="window.doForgotPassword()" style="font-size:.82rem;color:var(--text-muted);">שכחתי סיסמה</button>
+  </form>
+
+  <div class="lcard-note">🔒 ההתחברות מאובטחת. אנחנו לא שולחים ספאם.</div>
+</div>
+</div>
+
+<footer>
+  <div class="copy">כל הזכויות שמורות &copy; <span id="current-year"></span> בטיחות בקליק</div>
+  <div class="f-links">
+    <a href="terms.html">תנאי שימוש</a>
+    <span class="f-sep">|</span>
+    <a href="privacy.html">מדיניות פרטיות</a>
+  </div>
+  <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+</footer>
+
+<script>
+(function(){
+  const target = new Date('2026-07-08T09:00:00').getTime();
+  function update(){
+    const now = Date.now();
+    const diff = target - now;
+    if(diff <= 0){ document.getElementById('countdown').innerHTML='<div style="color:#fff;font-size:1.3rem;font-weight:700;">בהצלחה במבחן!</div>'; return; }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+  }
+  update();
+  setInterval(update, 1000);
+})();
+</script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged,
+         createUserWithEmailAndPassword, signInWithEmailAndPassword,
+         sendEmailVerification, sendPasswordResetEmail, updateProfile
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCV4zQ1gKvcrLspRl5eG2PaBqa9x7dxvSI",
+  authDomain: "ronsharavi.firebaseapp.com",
+  projectId: "ronsharavi",
+  storageBucket: "ronsharavi.firebasestorage.app",
+  messagingSenderId: "556800505802",
+  appId: "1:556800505802:web:f4dabf28bffd0c1613c133"
+};
+
+const ADMIN_EMAIL = 'ron6eli@gmail.com';
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const googleProvider = new GoogleAuthProvider();
+
+// יצירת מסמך משתמש ב-Firestore מיד עם הרשמה/התחברות
+async function ensureUserDoc(user) {
+  try {
+    const userRef = doc(db, 'users', user.uid);
+    const userDoc = await getDoc(userRef);
+    if (!userDoc.exists()) {
+      await setDoc(userRef, {
+        email: user.email,
+        name: user.displayName || user.email.split('@')[0],
+        role: user.email === ADMIN_EMAIL ? 'admin' : 'student',
+        createdAt: serverTimestamp()
+      });
+    }
+  } catch (e) { console.error('Firestore user doc error:', e); }
+}
+
+let isRegister = false;
+
+// ---------- MODAL ----------
+window.openLoginModal = () => {
+  document.getElementById('login-modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+window.closeLoginModal = () => {
+  document.getElementById('login-modal').classList.remove('active');
+  document.body.style.overflow = '';
+};
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') window.closeLoginModal();
+});
+
+function showError(msg) {
+  const el = document.getElementById('auth-error');
+  el.textContent = msg; el.style.display = 'block';
+  document.getElementById('auth-success').style.display = 'none';
+}
+function showSuccess(msg) {
+  const el = document.getElementById('auth-success');
+  el.textContent = msg; el.style.display = 'block';
+  document.getElementById('auth-error').style.display = 'none';
+}
+function hideMessages() {
+  document.getElementById('auth-error').style.display = 'none';
+  document.getElementById('auth-success').style.display = 'none';
+}
+
+// ---------- AUTH STATE ----------
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    await ensureUserDoc(user);
+
+    // מעביר לאפליקציה רק אם המשתמש ניסה להתחבר דרך ה-modal (לא כניסה ישירה לדף הבית)
+    if (!window._loginAttempted) return;
+
+    if (user.providerData[0]?.providerId === 'password' && !user.emailVerified) {
+      document.getElementById('verify-banner').style.display = 'block';
+      return;
+    }
+    window.location.href = './safety_learning_1.html';
+  }
+});
+
+// ---------- GOOGLE LOGIN ----------
+window.doGoogleLogin = async () => {
+  hideMessages();
+  window._loginAttempted = true;
+  try {
+    const cred = await signInWithPopup(auth, googleProvider);
+    await ensureUserDoc(cred.user);
+    window.location.href = './safety_learning_1.html';
+  }
+  catch (e) {
+    window._loginAttempted = false;
+    console.error('Google login error:', e.code, e.message);
+    if (e.code === 'auth/popup-closed-by-user' || e.code === 'auth/cancelled-popup-request') return;
+    if (e.code === 'auth/unauthorized-domain') {
+      showError('הדומיין הנוכחי אינו מורשה ב-Firebase. יש להוסיפו ב-Authentication → Settings → Authorized domains');
+    } else if (e.code === 'auth/popup-blocked') {
+      showError('החלון הקופץ נחסם על ידי הדפדפן — אפשר חלונות קופצים לאתר זה ונסה שוב');
+    } else if (e.code === 'auth/network-request-failed') {
+      showError('בעיית חיבור לאינטרנט — בדוק את החיבור ונסה שוב');
+    } else {
+      showError('שגיאה בהתחברות עם Google: ' + (e.code || e.message));
+    }
+  }
+};
+
+// ---------- TOGGLE REGISTER / LOGIN ----------
+window.toggleAuthMode = () => {
+  isRegister = !isRegister;
+  hideMessages();
+  document.getElementById('verify-banner').style.display = 'none';
+  document.getElementById('auth-name').style.display = isRegister ? 'block' : 'none';
+  document.getElementById('pw-strength').style.display = 'none';
+  document.getElementById('auth-submit').textContent = isRegister ? 'הירשם' : 'התחבר';
+  document.getElementById('auth-toggle').textContent = isRegister ? 'כבר יש לך חשבון? התחבר כאן' : 'אין לך חשבון? הירשם כאן';
+  document.getElementById('auth-password').value = '';
+};
+
+// ---------- PASSWORD STRENGTH ----------
+window.checkStrength = () => {
+  if (!isRegister) return;
+  const pw = document.getElementById('auth-password').value;
+  document.getElementById('pw-strength').style.display = pw.length > 0 ? 'block' : 'none';
+  let score = 0;
+  if (pw.length >= 6) score++;
+  if (pw.length >= 10) score++;
+  if (/[A-Z]/.test(pw) && /[a-z]/.test(pw)) score++;
+  if (/[0-9]/.test(pw) && /[^A-Za-z0-9]/.test(pw)) score++;
+
+  const colors = ['#ef4444','#f59e0b','#3b82f6','#10b981'];
+  const labels = ['חלשה','בינונית','טובה','חזקה מאוד'];
+  for (let i = 0; i < 4; i++) {
+    document.getElementById('pw'+(i+1)).style.background = i < score ? colors[score-1] : '#e2e8f0';
+  }
+  document.getElementById('pw-label').textContent = score > 0 ? labels[score-1] : '';
+  document.getElementById('pw-label').style.color = score > 0 ? colors[score-1] : '';
+};
+
+// ---------- EMAIL AUTH ----------
+window.doEmailAuth = async () => {
+  hideMessages();
+  const email = document.getElementById('auth-email').value.trim();
+  const password = document.getElementById('auth-password').value;
+  const name = document.getElementById('auth-name').value.trim();
+
+  if (!email || !password) { showError('יש למלא אימייל וסיסמה'); return; }
+  if (isRegister && password.length < 6) { showError('הסיסמה חייבת להכיל לפחות 6 תווים'); return; }
+  if (isRegister && !name) { showError('יש למלא שם מלא'); return; }
+
+  const btn = document.getElementById('auth-submit');
+  btn.disabled = true;
+  btn.textContent = 'רגע...';
+  window._loginAttempted = true;
+
+  try {
+    if (isRegister) {
+      const cred = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(cred.user, { displayName: name });
+      await ensureUserDoc(cred.user);
+      await sendEmailVerification(cred.user);
+      window._loginAttempted = false;
+      document.getElementById('verify-banner').style.display = 'block';
+      showSuccess('נרשמת בהצלחה! שלחנו קוד אימות למייל ' + email);
+    } else {
+      const cred = await signInWithEmailAndPassword(auth, email, password);
+      await ensureUserDoc(cred.user);
+      if (!cred.user.emailVerified) {
+        window._loginAttempted = false;
+        document.getElementById('verify-banner').style.display = 'block';
+        showError('המייל שלך עדיין לא אומת. בדוק את תיבת הדואר.');
+      } else {
+        window.location.href = './safety_learning_1.html';
+      }
+    }
+  } catch (e) {
+    window._loginAttempted = false;
+    const msgs = {
+      'auth/email-already-in-use': 'האימייל הזה כבר רשום. נסה להתחבר.',
+      'auth/invalid-email': 'כתובת אימייל לא תקינה.',
+      'auth/weak-password': 'הסיסמה חלשה מדי. נסה לפחות 6 תווים.',
+      'auth/invalid-credential': 'אימייל או סיסמה שגויים.',
+      'auth/user-not-found': 'לא נמצא חשבון עם האימייל הזה.',
+      'auth/wrong-password': 'סיסמה שגויה.',
+      'auth/too-many-requests': 'יותר מדי ניסיונות. נסה שוב בעוד כמה דקות.',
+    };
+    showError(msgs[e.code] || 'שגיאה: ' + e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = isRegister ? 'הירשם' : 'התחבר';
+  }
+};
+
+// ---------- RESEND VERIFICATION ----------
+window.resendVerification = async () => {
+  try {
+    if (auth.currentUser) {
+      await sendEmailVerification(auth.currentUser);
+      showSuccess('מייל אימות נשלח מחדש!');
+    }
+  } catch (e) { showError('לא ניתן לשלוח כרגע. נסה שוב בעוד דקה.'); }
+};
+
+// ---------- FORGOT PASSWORD ----------
+window.doForgotPassword = async () => {
+  hideMessages();
+  const email = document.getElementById('auth-email').value.trim();
+  if (!email) { showError('הכנס את האימייל שלך למעלה ואז לחץ על "שכחתי סיסמה"'); return; }
+  try {
+    await sendPasswordResetEmail(auth, email);
+    showSuccess('שלחנו קישור לאיפוס סיסמה ל-' + email);
+  } catch (e) { showError('לא נמצא חשבון עם האימייל הזה.'); }
+};
+</script>
+</body>
+</html>
