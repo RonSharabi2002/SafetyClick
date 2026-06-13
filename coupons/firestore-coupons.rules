@@ -1,0 +1,43 @@
+// =============================================================
+//  חוקי Firestore לקופונים — להוסיף ל-firestore.rules הקיים
+// =============================================================
+//  עיקרון: לקוח לא יכול לקרוא/לשנות קופונים ישירות.
+//  המימוש קורה רק דרך הפונקציה redeemCoupon (Admin SDK עוקף חוקים),
+//  כך שאי אפשר לזייף usedCount או לפתוח גישה בעצמך.
+// =============================================================
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // קופונים: רק אדמין רואה/יוצר/מוחק מהלקוח.
+    // המימוש (usedCount++, redemptions) נעשה ע"י הפונקציה דרך Admin SDK,
+    // שעוקף את החוקים — לכן הלקוח לא צריך הרשאת כתיבה כאן.
+    match /coupons/{code} {
+      allow read, write: if isAdmin();
+
+      match /redemptions/{uid} {
+        allow read: if isAdmin() || (request.auth != null && request.auth.uid == uid);
+        allow write: if false; // רק דרך הפונקציה
+      }
+    }
+
+    // הגנה על שדות הפרימיום במסמך המשתמש:
+    // המשתמש לא יכול להעניק לעצמו premium/premiumUntil ידנית.
+    // (התאם לחוקים הקיימים שלך ל-users אם כבר יש כאלה.)
+    match /users/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid || isAdmin();
+      allow create: if request.auth != null && request.auth.uid == uid;
+      allow update: if isAdmin() ||
+        (request.auth != null && request.auth.uid == uid
+         // אסור למשתמש לשנות בעצמו שדות רגישים:
+         && !request.resource.data.diff(resource.data).affectedKeys()
+              .hasAny(['premium','premiumUntil','premiumGrantedAt','premiumGrantedBy','plan','role']));
+    }
+  }
+}
